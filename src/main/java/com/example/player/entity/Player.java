@@ -1,16 +1,16 @@
-package com.example.karate.entity;
+package com.example.player.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "karatePlayers")
+@Table(name = "players")
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class KaratePlayer {
+public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
