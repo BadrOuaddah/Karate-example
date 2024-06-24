@@ -1,18 +1,18 @@
 package com.example.karate.service;
 
-import com.example.karate.entity.KaratePlayer;
+import com.example.karate.entity.Player;
 
 import java.util.List;
 
 public interface ServiceImplementation {
 
-    List<KaratePlayer> getAllKaratePlayers();
+    List<Player> getAllKaratePlayers();
 
-    KaratePlayer getKaratePlayer(long karatePlayerId);
+    Player getKaratePlayer(long karatePlayerId);
 
-    KaratePlayer addNewKaratePlayer(KaratePlayer karatePlayer);
+    Player addNewKaratePlayer(Player karatePlayer);
 
-    KaratePlayer updateKaratePlayer(Long karatePlayerId, KaratePlayer karatePlayer) throws Exception;
+    Player updateKaratePlayer(Long karatePlayerId, Player karatePlayer) throws Exception;
 
     void deleteKaratePlayer(Long karatePlayerId) throws Exception;
 }

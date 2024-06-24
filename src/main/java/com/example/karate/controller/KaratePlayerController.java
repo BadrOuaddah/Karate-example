@@ -1,6 +1,6 @@
 package com.example.karate.controller;
 
-import com.example.karate.entity.KaratePlayer;
+import com.example.karate.entity.Player;
 import com.example.karate.service.KaratePlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,17 +21,17 @@ public class KaratePlayerController {
     }
 
     @GetMapping
-    public ResponseEntity<List<KaratePlayer>> findAllPlayers() {
+    public ResponseEntity<List<Player>> findAllPlayers() {
         return new ResponseEntity<>(karatePlayerService.getAllKaratePlayers(), HttpStatus.OK);
     }
 
     @GetMapping(path = "/{karatePlayerId}")
-    public ResponseEntity<KaratePlayer> findKaratePlayerById(@PathVariable long karatePlayerId) throws Exception {
+    public ResponseEntity<Player> findKaratePlayerById(@PathVariable long karatePlayerId) throws Exception {
         return new ResponseEntity<>(karatePlayerService.getKaratePlayer(karatePlayerId), HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<KaratePlayer> addNewKaratePlayer(@RequestBody KaratePlayer karatePlayer) {
+    public ResponseEntity<Player> addNewKaratePlayer(@RequestBody Player karatePlayer) {
         return new ResponseEntity<>(karatePlayerService.addNewKaratePlayer(karatePlayer), HttpStatus.CREATED);
     }
 
@@ -41,7 +41,7 @@ public class KaratePlayerController {
     }
 
     @PutMapping(path = "/{karatePlayerId}")
-    public ResponseEntity<KaratePlayer> updateKaratePlayer(@PathVariable Long karatePlayerId, @RequestBody KaratePlayer karatePlayer) throws Exception {
+    public ResponseEntity<Player> updateKaratePlayer(@PathVariable Long karatePlayerId, @RequestBody Player karatePlayer) throws Exception {
         return new ResponseEntity<>(karatePlayerService.updateKaratePlayer(karatePlayerId, karatePlayer), HttpStatus.OK);
     }
 }

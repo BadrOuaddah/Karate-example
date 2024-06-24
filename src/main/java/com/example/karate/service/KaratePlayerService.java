@@ -1,6 +1,6 @@
 package com.example.karate.service;
 
-import com.example.karate.entity.KaratePlayer;
+import com.example.karate.entity.Player;
 import com.example.karate.repository.KaratePlayerRepository;
 import org.springframework.stereotype.Service;
 
@@ -16,20 +16,20 @@ public class KaratePlayerService implements ServiceImplementation {
         this.karatePlayerRepository = karatePlayerRepository;
     }
 
-    public List<KaratePlayer> getAllKaratePlayers() {
+    public List<Player> getAllKaratePlayers() {
         return karatePlayerRepository.findAll();
     }
 
-    public KaratePlayer getKaratePlayer(long karatePlayerId) {
-        Optional<KaratePlayer> byId = karatePlayerRepository.findById(karatePlayerId);
+    public Player getKaratePlayer(long karatePlayerId) {
+        Optional<Player> byId = karatePlayerRepository.findById(karatePlayerId);
         return byId.get();
     }
 
-    public KaratePlayer addNewKaratePlayer(KaratePlayer karatePlayer) {
+    public Player addNewKaratePlayer(Player karatePlayer) {
         return karatePlayerRepository.save(karatePlayer);
     }
 
-    public KaratePlayer updateKaratePlayer(Long karatePlayerId, KaratePlayer karatePlayer) throws Exception {
+    public Player updateKaratePlayer(Long karatePlayerId, Player karatePlayer) throws Exception {
         karatePlayerRepository.findById(karatePlayerId).orElseThrow(() -> new Exception("Player not found with id : " + karatePlayerId));
         return karatePlayerRepository.save(karatePlayer);
     }
